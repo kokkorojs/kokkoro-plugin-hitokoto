@@ -1,0 +1,2 @@
+# kokkoro-hitokoto
+ヒトコト
