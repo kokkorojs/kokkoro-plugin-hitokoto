@@ -17,10 +17,15 @@ function autoSend(bot) {
 
     // 判断开启服务的群
     gl.forEach(async value => {
-      const { group_id } = value;
-      const { auto_send, cron } = setting[group_id].plugin.hitokoto;
+      const { group_id, group_name } = value;
+      const option = setting[group_id].plugin.hitokoto;
 
-      auto_send && bot.sendGroupMsg(group_id, message);
+      if (option.auto_send & option.switch) {
+        bot.sendGroupMsg(group_id, message)
+          .catch(error => {
+            bot.logger.error(`Error: ${group_name}(${group_id}) 消息发送失败，${error.message}`);
+          })
+      }
     })
   })
 }
