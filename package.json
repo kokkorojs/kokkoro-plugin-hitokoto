@@ -1,6 +1,6 @@
 {
   "name": "kokkoro-hitokoto",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ヒトコト",
   "main": "index.js",
   "scripts": {
