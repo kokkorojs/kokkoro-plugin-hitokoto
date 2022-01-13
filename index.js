@@ -3,7 +3,7 @@ const { checkCommand, getOption, getSetting } = require('kokkoro-core');
 const axios = require('axios');
 const schedule = require('node-schedule');
 
-const api = 'https://v1.hitokoto.cn?c=a&c=b&c=c';
+const api = 'https://v1.hitokoto.cn';
 
 // 定时发送任务
 let send_job;
@@ -12,15 +12,15 @@ function autoSend(bot) {
   send_job = schedule.scheduleJob('0 0 0 * * ?', async () => {
     const { gl, uin } = bot;
 
-    const message = await get();
+    const message = await getHitokoto();
     const setting = getSetting(uin);
 
     // 判断开启服务的群
     gl.forEach(async value => {
       const { group_id, group_name } = value;
-      const option = setting[group_id].plugin.hitokoto;
+      const { apply, auto_send } = setting[group_id].plugin.hitokoto;
 
-      if (option.auto_send & option.switch) {
+      if (apply & auto_send) {
         bot.sendGroupMsg(group_id, message)
           .catch(error => {
             bot.logger.error(`Error: ${group_name}(${group_id}) 消息发送失败，${error.message}`);
@@ -30,9 +30,9 @@ function autoSend(bot) {
   })
 }
 
-async function get() {
+async function getHitokoto(params) {
   return new Promise((resolve, reject) => {
-    axios.get(api)
+    axios.get(api + params)
       .then(response => {
         const { data } = response;
         const { hitokoto, from } = data;
@@ -46,8 +46,8 @@ async function get() {
   })
 }
 
-async function send(event) {
-  const message = await get();
+async function send(event, option) {
+  const message = await getHitokoto(option.params);
 
   event.reply(message)
 }
@@ -59,14 +59,15 @@ const command = {
 const default_option = {
   auto_send: true,
   cron: '0 0 0 * * ?',
+  params: '?c=a&c=b&c=c',
 }
 
 function listener(event) {
   const option = getOption(event);
   const mission = checkCommand(command, event.raw_message);
 
-  if (option.switch) {
-    mission && eval(`${mission}.bind(this)(event)`);
+  if (option.apply) {
+    mission && eval(`${mission}.bind(this)(event, option)`);
   }
 }
 
