@@ -30,7 +30,7 @@ function autoSend(bot) {
   })
 }
 
-async function getHitokoto(params) {
+async function getHitokoto(params = '') {
   return new Promise((resolve, reject) => {
     axios.get(api + params)
       .then(response => {
@@ -58,7 +58,7 @@ const command = {
 
 const default_option = {
   auto_send: true,
-  cron: '0 0 0 * * ?',
+  // cron: '0 0 0 * * ?',
   params: '?c=a&c=b&c=c',
 }
 

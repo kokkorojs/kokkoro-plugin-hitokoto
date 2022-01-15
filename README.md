@@ -17,13 +17,13 @@ npm i kokkoro-hitokoto
 
 ## 参数
 
-``` json
-"option": {
-  // 每日自动发送一言
-  "auto_send": true,
-  // 自动发送时间段（cron 表达式）
-  "cron": "0 0 0 * * ?",
-  // 接口请求参数，可查看 https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0
-  "params": "?c=a&c=b&c=c",
+``` javascript
+const option = {
+  // 在每天凌晨自动发送
+  auto_send: true,
+  // 一言接口请求参数
+  params: "?c=a&c=b&c=c",
 }
 ```
+
+更多 params 可查看 [hitokoto](https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0) 官方文档
