@@ -21,9 +21,9 @@ npm i kokkoro-hitokoto
 const option = {
   // 在每天凌晨自动发送
   auto_send: true,
-  // 一言接口请求参数
-  params: "?c=a&c=b&c=c",
+  // 一言接口 get 请求参数
+  get_param: "?c=a&c=b&c=c",
 }
 ```
 
-更多 params 可查看 [hitokoto](https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0) 官方文档
+更多参数可查看 [hitokoto](https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0) 官方文档

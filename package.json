@@ -1,8 +1,8 @@
 {
   "name": "kokkoro-hitokoto",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "ヒトコト",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +13,7 @@
   "keywords": [
     "kokkoro"
   ],
-  "author": "dc_yuki",
+  "author": "yuki",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kokkorojs/kokkoro-hitokoto/issues"
@@ -22,5 +22,13 @@
   "dependencies": {
     "axios": "^0.24.0",
     "node-schedule": "^2.1.0"
-  }
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/node-schedule": "^1.3.2",
+    "kokkoro-core": "^0.2.0"
+  },
+  "files": [
+    "lib"
+  ]
 }
