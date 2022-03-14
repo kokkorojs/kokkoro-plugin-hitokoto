@@ -1,5 +1,5 @@
 {
-  "name": "kokkoro-hitokoto",
+  "name": "kokkoro-plugin-hitokoto",
   "version": "0.1.0",
   "description": "ヒトコト",
   "main": "./lib/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kokkorojs/kokkoro-hitokoto.git"
+    "url": "git+https://github.com/kokkorojs/kokkoro-plugin-hitokoto.git"
   },
   "keywords": [
     "kokkoro"
@@ -16,17 +16,16 @@
   "author": "yuki",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kokkorojs/kokkoro-hitokoto/issues"
+    "url": "https://github.com/kokkorojs/kokkoro-plugin-hitokoto/issues"
   },
-  "homepage": "https://github.com/kokkorojs/kokkoro-hitokoto#readme",
+  "homepage": "https://github.com/kokkorojs/kokkoro-plugin-hitokoto#readme",
   "dependencies": {
-    "axios": "^0.24.0",
     "node-schedule": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
     "@types/node-schedule": "^1.3.2",
-    "kokkoro-core": "^0.2.0"
+    "kokkoro": "^0.2.0"
   },
   "files": [
     "lib"

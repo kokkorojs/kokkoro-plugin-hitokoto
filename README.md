@@ -9,7 +9,7 @@
 cd bot
 
 # 安装 npm 包
-npm i kokkoro-hitokoto
+npm i kokkoro-plugin-hitokoto
 ```
 
 在 [kokkoro](https://github.com/kokkorojs/kokkoro) 成功运行并登录后，发送 `>enable hitokoto` 即可启用插件
@@ -17,12 +17,12 @@ npm i kokkoro-hitokoto
 
 ## 参数
 
-``` javascript
-const option = {
+``` typescript
+interface HitokotoOption {
   // 在每天凌晨自动发送
-  auto_send: true,
+  auto_send: boolean;
   // 一言接口 get 请求参数
-  get_param: "?c=a&c=b&c=c",
+  get_param: string;
 }
 ```
 
