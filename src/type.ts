@@ -2,7 +2,7 @@ import { Option } from 'kokkoro';
 
 export interface HitokotoOption extends Option {
   auto_send: boolean;
-  get_param: string;
+  param: string;
 }
 
 export interface Hitokoto {

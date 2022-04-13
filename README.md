@@ -12,8 +12,8 @@ cd bot
 npm i kokkoro-plugin-hitokoto
 ```
 
-在 [kokkoro](https://github.com/kokkorojs/kokkoro) 成功运行并登录后，发送 `>enable hitokoto` 即可启用插件
-使用 `>hitokoto <key> <value>` 可修改当前群聊的插件参数，例如关闭每日自动发送 `>hitokoto auto_send false`
+在 [kokkoro](https://github.com/kokkorojs/kokkoro) 成功运行并登录后，发送 `enable hitokoto` 即可为 bot 启用插件  
+使用 `hitokoto update <key> <value>` 可修改当前群聊的插件参数，例如关闭每日自动发送 `hitokoto update auto_send false`
 
 ## 参数
 
@@ -22,7 +22,7 @@ interface HitokotoOption {
   // 在每天凌晨自动发送
   auto_send: boolean;
   // 一言接口 get 请求参数
-  get_param: string;
+  param: string;
 }
 ```
 

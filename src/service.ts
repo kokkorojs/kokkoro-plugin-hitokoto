@@ -1,14 +1,13 @@
 import axios from 'axios';
-
 import { Hitokoto } from './type';
 
 // 定时发送任务
 export const api = 'https://v1.hitokoto.cn';
 
-export async function getHitokoto(get_param = ''): Promise<string> {
+export async function getHitokoto(param = ''): Promise<string> {
   let message = '';
 
-  await axios.get(api + get_param)
+  await axios.get(api + param)
     .then(response => {
       const { data } = response;
       const { hitokoto, from } = data as Hitokoto;
@@ -18,6 +17,5 @@ export async function getHitokoto(get_param = ''): Promise<string> {
     .catch(error => {
       message = error.message;
     })
-
   return message;
 }
